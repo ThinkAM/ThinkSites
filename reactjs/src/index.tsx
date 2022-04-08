@@ -3,6 +3,7 @@ import './index.css';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as moment from 'moment';
+import 'moment-timezone';
 
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';

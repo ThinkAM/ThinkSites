@@ -58,9 +58,10 @@ class Tenant extends AppComponentBase<ITenantProps, ITenantState> {
     });
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-expressions
   async createOrUpdateModalOpen(entityDto: EntityDto) {
     if (entityDto.id === 0) {
-      this.props.tenantStore.createTenant();
+      await this.props.tenantStore.createTenant();
     } else {
       await this.props.tenantStore.get(entityDto);
     }
@@ -68,12 +69,15 @@ class Tenant extends AppComponentBase<ITenantProps, ITenantState> {
     this.setState({ tenantId: entityDto.id });
     this.Modal();
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     setTimeout(() => {
       if (entityDto.id !== 0) {
+        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
         this.formRef.current?.setFieldsValue({
           ...this.props.tenantStore.tenantModel,
         });
       } else {
+        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
         this.formRef.current?.resetFields();
       }
     }, 100);
@@ -91,6 +95,7 @@ class Tenant extends AppComponentBase<ITenantProps, ITenantState> {
   }
 
   handleCreate = async () => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     this.formRef.current?.validateFields().then(async (values: any) => {
       if (this.state.tenantId === 0) {
         await this.props.tenantStore.create(values);
@@ -100,6 +105,7 @@ class Tenant extends AppComponentBase<ITenantProps, ITenantState> {
 
       await this.getAll();
       this.setState({ modalVisible: false });
+      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       this.formRef.current?.resetFields();
     });
   };

@@ -58,6 +58,7 @@ class User extends AppComponentBase<IUserProps, IUserState> {
     });
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-expressions
   async createOrUpdateModalOpen(entityDto: EntityDto) {
     if (entityDto.id === 0) {
       await this.props.userStore.createUser();
@@ -70,7 +71,9 @@ class User extends AppComponentBase<IUserProps, IUserState> {
     this.setState({ userId: entityDto.id });
     this.Modal();
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     setTimeout(() => {
+      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       this.formRef.current?.setFieldsValue({ ...this.props.userStore.editUser });
     }, 100);
   }
@@ -202,6 +205,7 @@ class User extends AppComponentBase<IUserProps, IUserState> {
             this.setState({
               modalVisible: false,
             });
+            // eslint-disable-next-line @typescript-eslint/no-unused-expressions
             this.formRef.current?.resetFields();
           }}
           modalType={this.state.userId === 0 ? 'edit' : 'create'}

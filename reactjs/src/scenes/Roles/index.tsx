@@ -58,6 +58,7 @@ class Role extends AppComponentBase<IRoleProps, IRoleState> {
     });
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-expressions
   async createOrUpdateModalOpen(entityDto: EntityDto) {
     if (entityDto.id === 0) {
       this.props.roleStore.createRole();
@@ -70,7 +71,9 @@ class Role extends AppComponentBase<IRoleProps, IRoleState> {
     this.setState({ roleId: entityDto.id });
     this.Modal();
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     setTimeout(() => {
+      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       this.formRef.current?.setFieldsValue({
         ...this.props.roleStore.roleEdit.role,
         grantedPermissions: this.props.roleStore.roleEdit.grantedPermissionNames,
